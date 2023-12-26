@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin:0px;
+    padding: 0px;
+}
+
+img, svg{
+    max-width: 100%;
+    height: auto;
+}
+
+body{
+    background-image: url('images/bg-pattern.svg');
+    background-repeat: no-repeat;
+    background-color: rgb(249,250,255);
+    color: rgb(135,142,168);
+    font-family: "Manrope";
+}
+
+#root{
+    height: 100vh;
+}
+
+
+.App{
+    height: 100vh;
+    display:grid;
+    align-items: start;
+    justify-items: center;
+}
+
+.hero{
+    background: url('images/pattern-circles.svg') no-repeat center;
+    display: grid;
+    gap: 1rem;
+    align-items: center;
+    justify-items: center;
+}
+
+    .hero > h1{
+        color: rgb(40,53,88);
+        text-align: center;
+    }
+
+.main-content{
+    display: grid;
+    background-color: white;
+    border-radius: .5rem;
+    box-shadow: gainsboro 0px 0px 1rem;
+    grid-template-rows: repeat(3, 1fr);
+    
+    
+}
+.content-top{
+    grid-row: 1/3;
+    display: grid;
+    padding: 2rem;
+    align-items: center;
+    justify-items: center;
+}
+
+    .content-top > p{
+        letter-spacing: .2rem;
+    }
+
+    .slider{
+        width: 100%;
+        height: .75rem;
+        position: relative;
+    }
+
+    .content-top > .switch-container{
+        display: flex;
+        flex-direction: row;
+        
+    }
+
+
+    .progressslider{
+        height: 1rem;
+        border-radius: 1rem 0 0 1rem;
+        background-color: rgb(162,243,234);
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+    }
+
+    .slider > input[type="range"]{
+        border-radius: 1rem;
+        -webkit-appearance: none;
+        width: 100%;
+        height: 1rem;
+        background-color: rgb(236,240,249);
+        outline: none;
+        cursor: pointer;
+        
+    }
+
+    .slider > input[type="range"]::-webkit-slider-thumb:hover{
+       box-shadow: rgb(17,216,197) 0px 0px 2rem ;
+        
+    }
+          
+    input[type="range"]::-webkit-slider-thumb {
+        width: 50px;
+        height: 50px;
+        background: no-repeat url('images/icon-slider.svg') center center;
+        background-color: rgb(17,216,197);
+        border-radius: 50%;
+        -webkit-appearance: none;
+        position: relative;
+        z-index: 5;
+        cursor: pointer;
+    }
+        
+    .switch{
+        position: relative;
+        height: 1.5rem;
+        width: 2.5rem;
+        border-radius: 1rem;
+        background-color: rgb(208,216,236);
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+    .switch-toggle{
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-radius: 1rem;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .switch-toggle:before {
+        position: absolute;
+        content: "";
+        height: 1rem;
+        width: 1rem;
+        left: 4px;
+        bottom: 4px;
+        border-radius: 1rem;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+      
+      .switch > input:checked + .switch-toggle:before {
+        -webkit-transform: translateX(1rem);
+        -ms-transform: translateX(1rem);
+        transform: translateX(1rem);
+      }
+
+
+      input:checked + .switch-toggle {
+        background-color: rgb(163,243,234);
+      }
+
+
+
+    .content-top> h2 {
+        display:flex;
+        align-items: center;
+        gap: .5rem;
+        font-size: 2.5rem;
+        color: rgb(40,53,88);
+    }
+    .content-top>h2>span{
+       
+        font-size: 1rem;
+        color: rgb(135,142,168);
+    }
+
+    .content-top>.switch-container{
+        font-size: .9rem;
+    }
+        .content-top>.switch-container>span{
+            background-color: rgb(252,238,235);
+            color: rgb(227,171,155);
+            padding: .2rem .5rem;
+            border-radius: 1rem;
+        }
+.content-bottom{
+    border-top: 1px solid rgb(135,142,168);
+    grid-row: 3/4;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    gap: 2rem;
+}
+
+
+    .content-bottom > button{
+        background-color: rgb(40,53,88);
+        color: rgb(164,176,216);
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+        padding: 1rem;
+        width: 180px;
+        border-radius: 2rem;
+    }
+    .content-bottom > ul {
+        font-size: .9rem;
+        list-style-image: url('images/icon-check.svg');
+    }
+
+
+
+@media screen and (min-width: 280px) and (max-width: 799px) {
+  .wrapper{
+    width: 90vw;
+  }
+
+  .main-content{
+    grid-template-rows: auto;
+  }
+
+  .hero{
+    display:flex;
+    flex-direction: column;
+    gap: 0px;
+    justify-content: center;
+    height: 200px;
+  }
+    .hero > h1{
+        font-size: 1.35rem;
+        font-weight: 800;
+    }
+
+    .hero > p{
+        display:flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .content-top{
+        gap: 2rem;
+        padding: 2rem 0px;
+
+        grid-auto-rows: min-content;
+    }
+
+        .content-top > p{
+            text-align: center;
+            width: 100%;
+            padding: 0px 2rem;
+        }
+
+        .slider{
+            width: 80%;
+            grid-area: 2/1/2/2;
+        }
+
+        .content-top .switch-container {
+            gap: 1rem;
+        }
+
+    span.discount > .desc{
+        display: none;
+    }
+
+
+  .content-bottom{
+    padding: 2rem;
+    grid-template-columns: 1fr;
+  }
+
+  .content-bottom > ul{
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    list-style-position: inside;
+  }
+}
+
+@media screen and (min-width: 800px){
+    body{
+        background-position: top -5rem center;
+        background-size: contain;
+    }
+
+
+    .wrapper{
+        width: 700px;
+    }
+    .hero{
+        height: 300px;
+    }
+
+        .hero > h1{
+            align-self: end;
+        }
+
+        .hero > p{
+            align-self: start;
+        }
+
+    .main-content{
+        height: 400px;
+    }
+
+    .content-top > p {
+        grid-column: 1/2;
+    }
+    .content-top > h2{
+        grid-column: 2/3;
+    }
+
+    .slider{
+        grid-area: 2/1/3/3;
+    }
+
+    .content-top > .switch-container{
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        grid-area: 3/1/4/3;
+    }
+
+    .content-bottom{
+        grid-template-columns: 1fr 1fr;
+      }
+
+}
